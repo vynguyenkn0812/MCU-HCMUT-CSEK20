@@ -140,17 +140,48 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  int count = 0;
+
+  /* GET TIME HERE */
+  //int count = 0;
+  int h = 0; //hour
+  int m = 20; //minute
+  int s = 10; //second
+  clearAllClock();
+
   while (1)
   {
-	  if (count >= 12) {
-		  count = 0;
-		  clearAllClock();
+	  clearNumberOnClock(((s - 5) / 5) % 12);
+	  if (s < 60) {
+		  setNumberOnClock((s / 5) % 12);
+		  setNumberOnClock((m / 5) % 12);
+		  setNumberOnClock(h % 12);
+		  s++;
 	  }
-	  else {
-		  setNumberOnClock(count);
-		  count ++;
+	  if (s >= 60) {
+		  clearNumberOnClock(((s - 5) / 5) % 12);
+		  s = 0;
+		  clearNumberOnClock((m / 5) % 12);
+		  m++;
 	  }
+
+	  if (m >= 60) {
+		  m = 0;
+	  	  clearNumberOnClock(h % 12);
+	  	  h++;
+	  }
+
+	  if (h >= 12) {
+		  h = 0;
+	  }
+
+//	  if (count >= 12) {
+//		  count = 0;
+//		  clearAllClock();
+//	  }
+//	  else {
+//		  setNumberOnClock(count);
+//		  count ++;
+//	  }
 
 	  HAL_Delay(1000);
     /* USER CODE END WHILE */
