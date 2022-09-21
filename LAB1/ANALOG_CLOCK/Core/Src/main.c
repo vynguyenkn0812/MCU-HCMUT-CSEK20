@@ -140,8 +140,18 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
+  int count = 0;
   while (1)
   {
+	  if (count < 12) {
+		  count ++;
+		  setNumberOnClock(count);
+	  }
+	  if (count >= 12) {
+		  count = 0;
+		  clearAllClock();
+	  }
+	  HAL_Delay(1000);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
