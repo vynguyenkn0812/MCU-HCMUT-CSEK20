@@ -83,7 +83,7 @@ void setNumberOnClock(int num) {
 		case 9: HAL_GPIO_WritePin(NUM_9_GPIO_Port, NUM_9_Pin, SET); break;
 		case 10: HAL_GPIO_WritePin(NUM_10_GPIO_Port, NUM_10_Pin, SET); break;
 		case 11: HAL_GPIO_WritePin(NUM_11_GPIO_Port, NUM_11_Pin, SET); break;
-		default:
+		default: break;
 	}
 }
 
@@ -101,7 +101,7 @@ void clearNumberOnClock(int num) {
 		case 9: HAL_GPIO_WritePin(NUM_9_GPIO_Port, NUM_9_Pin, RESET); break;
 		case 10: HAL_GPIO_WritePin(NUM_10_GPIO_Port, NUM_10_Pin, RESET); break;
 		case 11: HAL_GPIO_WritePin(NUM_11_GPIO_Port, NUM_11_Pin, RESET); break;
-		default:
+		default: break;
 	}
 }
 /* USER CODE END 0 */
@@ -143,14 +143,15 @@ int main(void)
   int count = 0;
   while (1)
   {
-	  if (count < 12) {
-		  count ++;
-		  setNumberOnClock(count);
-	  }
 	  if (count >= 12) {
 		  count = 0;
 		  clearAllClock();
 	  }
+	  else {
+		  setNumberOnClock(count);
+		  count ++;
+	  }
+
 	  HAL_Delay(1000);
     /* USER CODE END WHILE */
 
