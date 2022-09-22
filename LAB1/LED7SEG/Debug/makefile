@@ -64,8 +64,8 @@ all: main-build
 main-build: LEG7SEG.elf secondary-outputs
 
 # Tool invocations
-LEG7SEG.elf: $(OBJS) $(USER_OBJS) C:\Users\PC\VY\Studying\MCU\LAB1\LED7SEG\STM32F103C6UX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "LEG7SEG.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m3 -T"C:\Users\PC\VY\Studying\MCU\LAB1\LED7SEG\STM32F103C6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="LEG7SEG.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+LEG7SEG.elf: $(OBJS) $(USER_OBJS) C:\Users\PC\VY\GITHUB\MCU-HCMUT-CSEK20\LAB1\LED7SEG\STM32F103C6UX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "LEG7SEG.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m3 -T"C:\Users\PC\VY\GITHUB\MCU-HCMUT-CSEK20\LAB1\LED7SEG\STM32F103C6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="LEG7SEG.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 
