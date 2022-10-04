@@ -55,6 +55,7 @@ static void MX_GPIO_Init(void);
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
 void clearAllClock() {
+
 	HAL_GPIO_WritePin(NUM_0_GPIO_Port, NUM_0_Pin, RESET);
 	HAL_GPIO_WritePin(NUM_1_GPIO_Port, NUM_1_Pin, RESET);
 	HAL_GPIO_WritePin(NUM_2_GPIO_Port, NUM_2_Pin, RESET);
@@ -143,35 +144,38 @@ int main(void)
 
   /* GET TIME HERE */
   //int count = 0;
-  int h = 0; //hour
-  int m = 20; //minute
-  int s = 10; //second
+  int hour = 0;
+  int minute = 20;
+  int second = 10;
   clearAllClock();
 
   while (1)
   {
-	  clearNumberOnClock(((s - 5) / 5) % 12);
-	  if (s < 60) {
-		  setNumberOnClock((s / 5) % 12);
-		  setNumberOnClock((m / 5) % 12);
-		  setNumberOnClock(h % 12);
-		  s++;
+	  clearNumberOnClock(((second - 5) / 5) % 12); //Clear the previous second showed on Clock
+	  if (second < 60) {
+		  setNumberOnClock((second / 5) % 12);
+		  setNumberOnClock((minute / 5) % 12);
+		  setNumberOnClock(hour % 12);
+		  second++;
 	  }
-	  if (s >= 60) {
-		  clearNumberOnClock(((s - 5) / 5) % 12);
-		  s = 0;
-		  clearNumberOnClock((m / 5) % 12);
-		  m++;
-	  }
-
-	  if (m >= 60) {
-		  m = 0;
-	  	  clearNumberOnClock(h % 12);
-	  	  h++;
+	  if (second >= 60) //The second hand turn a cycle -> second reset to 0, minute increase 1
+	  {
+		  clearNumberOnClock(((second - 5) / 5) % 12); //Clear the previous second showed on Clock
+		  second = 0;
+		  clearNumberOnClock((minute / 5) % 12);
+		  minute++;
 	  }
 
-	  if (h >= 12) {
-		  h = 0;
+	  if (minute >= 60) //The minute hand turn a cycle -> minute reset to 0, hour increase 1
+	  {
+		  minute = 0;
+	  	  clearNumberOnClock(hour % 12);
+	  	  hour++;
+	  }
+
+	  if (hour >= 12) //The hour mark turn a cycle -> hour reset to 0
+	  {
+		  hour = 0;
 	  }
 
 //	  if (count >= 12) {
@@ -183,7 +187,7 @@ int main(void)
 //		  count ++;
 //	  }
 
-	  HAL_Delay(1000);
+	  HAL_Delay(50);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
