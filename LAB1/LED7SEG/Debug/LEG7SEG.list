@@ -35,15 +35,15 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY, DEBUGGING, OCTETS
  15 .debug_ranges 00000350  00000000  00000000  00024448  2**3
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 16 .debug_macro  000155fe  00000000  00000000  00024798  2**0
+ 16 .debug_macro  00015610  00000000  00000000  00024798  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 17 .debug_line   00004623  00000000  00000000  00039d96  2**0
+ 17 .debug_line   00004623  00000000  00000000  00039da8  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 18 .debug_str    00079ac2  00000000  00000000  0003e3b9  2**0
+ 18 .debug_str    00079aeb  00000000  00000000  0003e3cb  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 19 .comment      00000053  00000000  00000000  000b7e7b  2**0
+ 19 .comment      00000053  00000000  00000000  000b7eb6  2**0
                   CONTENTS, READONLY
- 20 .debug_frame  00000d5c  00000000  00000000  000b7ed0  2**2
+ 20 .debug_frame  00000d5c  00000000  00000000  000b7f0c  2**2
                   CONTENTS, READONLY, DEBUGGING, OCTETS
 
 Disassembly of section .text:
@@ -114,7 +114,7 @@ void display7SEG(uint16_t Pin1, uint16_t Pin2, uint16_t Pin3, uint16_t Pin4, uin
  8000198:	08000451 	.word	0x08000451
  800019c:	080004a7 	.word	0x080004a7
 	switch(num) {
-	case 0:
+	case 0: //Number 0 is 0000001
 		HAL_GPIO_WritePin(Port1, Pin1, RESET);
  80001a0:	88fb      	ldrh	r3, [r7, #6]
  80001a2:	2200      	movs	r2, #0
@@ -160,7 +160,7 @@ void display7SEG(uint16_t Pin1, uint16_t Pin2, uint16_t Pin3, uint16_t Pin4, uin
 		break;
  80001f4:	e183      	b.n	80004fe <display7SEG+0x3b2>
 
-	case 1:
+	case 1: //Number 1 is 1001111
 		HAL_GPIO_WritePin(Port1, Pin1, SET);
  80001f6:	88fb      	ldrh	r3, [r7, #6]
  80001f8:	2201      	movs	r2, #1
@@ -206,7 +206,7 @@ void display7SEG(uint16_t Pin1, uint16_t Pin2, uint16_t Pin3, uint16_t Pin4, uin
 		break;
  800024a:	e158      	b.n	80004fe <display7SEG+0x3b2>
 
-	case 2:
+	case 2: //Number 2 is 0010010
 		HAL_GPIO_WritePin(Port1, Pin1, RESET);
  800024c:	88fb      	ldrh	r3, [r7, #6]
  800024e:	2200      	movs	r2, #0
@@ -252,7 +252,7 @@ void display7SEG(uint16_t Pin1, uint16_t Pin2, uint16_t Pin3, uint16_t Pin4, uin
 		break;
  80002a0:	e12d      	b.n	80004fe <display7SEG+0x3b2>
 
-	case 3:
+	case 3: //Number 3 is 0000110
 		HAL_GPIO_WritePin(Port1, Pin1, RESET);
  80002a2:	88fb      	ldrh	r3, [r7, #6]
  80002a4:	2200      	movs	r2, #0
@@ -298,7 +298,7 @@ void display7SEG(uint16_t Pin1, uint16_t Pin2, uint16_t Pin3, uint16_t Pin4, uin
 		break;
  80002f6:	e102      	b.n	80004fe <display7SEG+0x3b2>
 
-	case 4:
+	case 4: //Number 4 is 1001100
 		HAL_GPIO_WritePin(Port1, Pin1, SET);
  80002f8:	88fb      	ldrh	r3, [r7, #6]
  80002fa:	2201      	movs	r2, #1
@@ -344,7 +344,7 @@ void display7SEG(uint16_t Pin1, uint16_t Pin2, uint16_t Pin3, uint16_t Pin4, uin
 		break;
  800034c:	e0d7      	b.n	80004fe <display7SEG+0x3b2>
 
-	case 5:
+	case 5: //Number 5 is 0100100
 		HAL_GPIO_WritePin(Port1, Pin1, RESET);
  800034e:	88fb      	ldrh	r3, [r7, #6]
  8000350:	2200      	movs	r2, #0
@@ -390,7 +390,7 @@ void display7SEG(uint16_t Pin1, uint16_t Pin2, uint16_t Pin3, uint16_t Pin4, uin
 		break;
  80003a2:	e0ac      	b.n	80004fe <display7SEG+0x3b2>
 
-	case 6:
+	case 6: //Number 6 is 0100000
 		HAL_GPIO_WritePin(Port1, Pin1, RESET);
  80003a4:	88fb      	ldrh	r3, [r7, #6]
  80003a6:	2200      	movs	r2, #0
@@ -436,7 +436,7 @@ void display7SEG(uint16_t Pin1, uint16_t Pin2, uint16_t Pin3, uint16_t Pin4, uin
 		break;
  80003f8:	e081      	b.n	80004fe <display7SEG+0x3b2>
 
-	case 7:
+	case 7: //Number 7 is 0001111
 		HAL_GPIO_WritePin(Port1, Pin1, RESET);
  80003fa:	88fb      	ldrh	r3, [r7, #6]
  80003fc:	2200      	movs	r2, #0
@@ -482,7 +482,7 @@ void display7SEG(uint16_t Pin1, uint16_t Pin2, uint16_t Pin3, uint16_t Pin4, uin
 		break;
  800044e:	e056      	b.n	80004fe <display7SEG+0x3b2>
 
-	case 8:
+	case 8: //Number 8 is 0000000
 		HAL_GPIO_WritePin(Port1, Pin1, RESET);
  8000450:	88fb      	ldrh	r3, [r7, #6]
  8000452:	2200      	movs	r2, #0
@@ -528,7 +528,7 @@ void display7SEG(uint16_t Pin1, uint16_t Pin2, uint16_t Pin3, uint16_t Pin4, uin
 		break;
  80004a4:	e02b      	b.n	80004fe <display7SEG+0x3b2>
 
-	case 9:
+	case 9: //Number 9 is 0000100
 		HAL_GPIO_WritePin(Port1, Pin1, RESET);
  80004a6:	88fb      	ldrh	r3, [r7, #6]
  80004a8:	2200      	movs	r2, #0
@@ -615,11 +615,11 @@ int main(void)
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
  8000516:	f000 fa83 	bl	8000a20 <MX_GPIO_Init>
+//4
+//  int counter = 0;
 
-  /* USER CODE END 2 */
-
-  /* Infinite loop */
-  /* USER CODE BEGIN WHILE */
+  //5
+  //Set the INITIAL status of each led
   int led_status1 = 1; // This is status of LEDs 1
  800051a:	2301      	movs	r3, #1
  800051c:	61fb      	str	r3, [r7, #28]
@@ -630,35 +630,33 @@ int main(void)
    * led_status = 3: green
    */
 
-  //int counter = 0;
-  int red_counter1 = 5;
+  //Set time for led's counter
+  int red_counter1 = RED_timer;
  8000522:	2305      	movs	r3, #5
  8000524:	617b      	str	r3, [r7, #20]
-  int yellow_counter1 = 2;
+  int yellow_counter1 = YELLOW_timer;
  8000526:	2302      	movs	r3, #2
  8000528:	613b      	str	r3, [r7, #16]
-  int green_counter1 = 3;
+  int green_counter1 = GREEN_timer;
  800052a:	2303      	movs	r3, #3
  800052c:	60fb      	str	r3, [r7, #12]
 
-  int red_counter2 = 5;
+  int red_counter2 = RED_timer;
  800052e:	2305      	movs	r3, #5
  8000530:	60bb      	str	r3, [r7, #8]
-  int yellow_counter2 = 2;
+  int yellow_counter2 = YELLOW_timer;
  8000532:	2302      	movs	r3, #2
  8000534:	607b      	str	r3, [r7, #4]
-  int green_counter2 = 3;
+  int green_counter2 = GREEN_timer;
  8000536:	2303      	movs	r3, #3
  8000538:	603b      	str	r3, [r7, #0]
-//	  display7SEG(a1_Pin, b1_Pin, c1_Pin, d1_Pin, e1_Pin, f1_Pin, g1_Pin,
-//			  	  a1_GPIO_Port, b1_GPIO_Port, c1_GPIO_Port, d1_GPIO_Port, e1_GPIO_Port, f1_GPIO_Port, g1_GPIO_Port,
-//				  counter++);
-//	  HAL_Delay(1000);
 
-	  if (led_status1 == 1) {
+  while (1) {
+	  if (led_status1 == 1) //LED1 is RED
  800053a:	69fb      	ldr	r3, [r7, #28]
  800053c:	2b01      	cmp	r3, #1
  800053e:	d151      	bne.n	80005e4 <main+0xdc>
+	    {
 		  if (red_counter1 > 0) {
  8000540:	697b      	ldr	r3, [r7, #20]
  8000542:	2b00      	cmp	r3, #0
@@ -742,10 +740,11 @@ int main(void)
  80005d6:	f7ff fdb9 	bl	800014c <display7SEG>
 						  a1_GPIO_Port, b1_GPIO_Port, c1_GPIO_Port, d1_GPIO_Port, e1_GPIO_Port, f1_GPIO_Port, g1_GPIO_Port,
 						  red_counter1);
-			  red_counter1 = 5;
+
+			  //Switch LED1 from RED to GREEN and reset red_counter
+			  red_counter1 = RED_timer;
  80005da:	2305      	movs	r3, #5
  80005dc:	617b      	str	r3, [r7, #20]
-
 			  led_status1 = 3;
  80005de:	2303      	movs	r3, #3
  80005e0:	61fb      	str	r3, [r7, #28]
@@ -753,10 +752,11 @@ int main(void)
 		  }
 	  }
 
-	  else if (led_status1 == 2) {
+	  else if (led_status1 == 2) //LED1 is YELLOW
  80005e4:	69fb      	ldr	r3, [r7, #28]
  80005e6:	2b02      	cmp	r3, #2
  80005e8:	d151      	bne.n	800068e <main+0x186>
+	  {
 		  if (yellow_counter1 > 0) {
  80005ea:	693b      	ldr	r3, [r7, #16]
  80005ec:	2b00      	cmp	r3, #0
@@ -841,10 +841,10 @@ int main(void)
 						  a1_GPIO_Port, b1_GPIO_Port, c1_GPIO_Port, d1_GPIO_Port, e1_GPIO_Port, f1_GPIO_Port, g1_GPIO_Port,
 						  yellow_counter1);
 
-			  yellow_counter1 = 2;
+			  //Switch LED1 from YELLOW to RED and reset yelloW_counter
+			  yellow_counter1 = YELLOW_timer;
  8000684:	2302      	movs	r3, #2
  8000686:	613b      	str	r3, [r7, #16]
-
 			  led_status1 = 1;
  8000688:	2301      	movs	r3, #1
  800068a:	61fb      	str	r3, [r7, #28]
@@ -852,10 +852,11 @@ int main(void)
 		  }
 	  }
 
-	  else if (led_status1 == 3) {
+	  else if (led_status1 == 3) //LED1 is GREEN
  800068e:	69fb      	ldr	r3, [r7, #28]
  8000690:	2b03      	cmp	r3, #3
  8000692:	d150      	bne.n	8000736 <main+0x22e>
+	  {
 		  if (green_counter1 > 0) {
  8000694:	68fb      	ldr	r3, [r7, #12]
  8000696:	2b00      	cmp	r3, #0
@@ -939,20 +940,22 @@ int main(void)
  800072a:	f7ff fd0f 	bl	800014c <display7SEG>
 						  a1_GPIO_Port, b1_GPIO_Port, c1_GPIO_Port, d1_GPIO_Port, e1_GPIO_Port, f1_GPIO_Port, g1_GPIO_Port,
 						  green_counter1);
-			  green_counter1 = 3;
+
+			  //Switch LED1 from GREEN to YELLOW and reset green_counter
+			  green_counter1 = GREEN_timer;
  800072e:	2303      	movs	r3, #3
  8000730:	60fb      	str	r3, [r7, #12]
-
 			  led_status1 = 2;
  8000732:	2302      	movs	r3, #2
  8000734:	61fb      	str	r3, [r7, #28]
 		  }
 	  }
 
-	  if (led_status2 == 1) {
+	  if (led_status2 == 1) //LED2 is RED
  8000736:	69bb      	ldr	r3, [r7, #24]
  8000738:	2b01      	cmp	r3, #1
  800073a:	d165      	bne.n	8000808 <main+0x300>
+	  {
 		  if (red_counter2 > 0) {
  800073c:	68bb      	ldr	r3, [r7, #8]
  800073e:	2b00      	cmp	r3, #0
@@ -1040,10 +1043,11 @@ int main(void)
  80007fa:	f7ff fca7 	bl	800014c <display7SEG>
 						  a2_GPIO_Port, b2_GPIO_Port, c2_GPIO_Port, d2_GPIO_Port, e2_GPIO_Port, f2_GPIO_Port, g2_GPIO_Port,
 						  red_counter2);
-			  red_counter2 = 5;
+
+			  //Switch LED2 from RED to GREEN and reset red_counter
+			  red_counter2 = RED_timer;
  80007fe:	2305      	movs	r3, #5
  8000800:	60bb      	str	r3, [r7, #8]
-
 			  led_status2 = 3;
  8000802:	2303      	movs	r3, #3
  8000804:	61bb      	str	r3, [r7, #24]
@@ -1051,10 +1055,11 @@ int main(void)
 		  }
 	  }
 
-	  else if (led_status2 == 2) {
+	  else if (led_status2 == 2) //LED2 is YELLOW
  8000808:	69bb      	ldr	r3, [r7, #24]
  800080a:	2b02      	cmp	r3, #2
  800080c:	d160      	bne.n	80008d0 <main+0x3c8>
+	  {
 		  if (yellow_counter2 > 0) {
  800080e:	687b      	ldr	r3, [r7, #4]
  8000810:	2b00      	cmp	r3, #0
@@ -1139,10 +1144,11 @@ int main(void)
  80008c2:	f7ff fc43 	bl	800014c <display7SEG>
 						  a2_GPIO_Port, b2_GPIO_Port, c2_GPIO_Port, d2_GPIO_Port, e2_GPIO_Port, f2_GPIO_Port, g2_GPIO_Port,
 						  yellow_counter2);
-			  yellow_counter2 = 2;
+
+			  //Switch LED2 from YELLOW to RED and reset yellow_counter
+			  yellow_counter2 = YELLOW_timer;
  80008c6:	2302      	movs	r3, #2
  80008c8:	607b      	str	r3, [r7, #4]
-
 			  led_status2 = 1;
  80008ca:	2301      	movs	r3, #1
  80008cc:	61bb      	str	r3, [r7, #24]
@@ -1150,10 +1156,11 @@ int main(void)
 		  }
 	  }
 
-	  else if (led_status2 == 3) {
+	  else if (led_status2 == 3) ////LED2 is GREEN
  80008d0:	69bb      	ldr	r3, [r7, #24]
  80008d2:	2b03      	cmp	r3, #3
  80008d4:	d15f      	bne.n	8000996 <main+0x48e>
+	  {
 		  if (green_counter2 > 0) {
  80008d6:	683b      	ldr	r3, [r7, #0]
  80008d8:	2b00      	cmp	r3, #0
@@ -1238,10 +1245,11 @@ int main(void)
  800098a:	f7ff fbdf 	bl	800014c <display7SEG>
 						  a2_GPIO_Port, b2_GPIO_Port, c2_GPIO_Port, d2_GPIO_Port, e2_GPIO_Port, f2_GPIO_Port, g2_GPIO_Port,
 						  green_counter2);
-			  green_counter2 = 3;
+
+			  //Switch LED2 from GREEN to YELLOW and reset green_counter
+			  green_counter2 = GREEN_timer;
  800098e:	2303      	movs	r3, #3
  8000990:	603b      	str	r3, [r7, #0]
-
 			  led_status2 = 2;
  8000992:	2302      	movs	r3, #2
  8000994:	61bb      	str	r3, [r7, #24]
@@ -1251,7 +1259,7 @@ int main(void)
 	  HAL_Delay(1000);
  8000996:	f44f 707a 	mov.w	r0, #1000	; 0x3e8
  800099a:	f000 f985 	bl	8000ca8 <HAL_Delay>
-	  if (led_status1 == 1) {
+	  if (led_status1 == 1) //LED1 is RED
  800099e:	e5cc      	b.n	800053a <main+0x32>
  80009a0:	40010c00 	.word	0x40010c00
  80009a4:	40010800 	.word	0x40010800
