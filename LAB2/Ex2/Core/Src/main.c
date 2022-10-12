@@ -346,55 +346,6 @@ int status = 0; //LED 7SEG status
 
 
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim) {
-	if (status == 0) //LEG SEG1 is displaying
-	{
-		display7SEG(a_Pin, b_Pin, c_Pin, d_Pin, e_Pin, f_Pin, g_Pin,
-				    a_GPIO_Port, b_GPIO_Port, c_GPIO_Port, d_GPIO_Port, e_GPIO_Port, f_GPIO_Port, g_GPIO_Port,
-					1);
-
-		HAL_GPIO_WritePin(EN0_GPIO_Port, EN0_Pin, RESET);
-		HAL_GPIO_WritePin(EN1_GPIO_Port, EN1_Pin, SET);
-		HAL_GPIO_WritePin(EN2_GPIO_Port, EN2_Pin, SET);
-		HAL_GPIO_WritePin(EN3_GPIO_Port, EN3_Pin, SET);
-
-	}
-	else if (status == 1) //LEG SEG2 is displaying
-	{
-		display7SEG(a_Pin, b_Pin, c_Pin, d_Pin, e_Pin, f_Pin, g_Pin,
-				    a_GPIO_Port, b_GPIO_Port, c_GPIO_Port, d_GPIO_Port, e_GPIO_Port, f_GPIO_Port, g_GPIO_Port,
-					2);
-
-		HAL_GPIO_WritePin(EN0_GPIO_Port, EN0_Pin, SET);
-		HAL_GPIO_WritePin(EN1_GPIO_Port, EN1_Pin, RESET);
-		HAL_GPIO_WritePin(EN2_GPIO_Port, EN2_Pin, SET);
-		HAL_GPIO_WritePin(EN3_GPIO_Port, EN3_Pin, SET);
-
-	}
-	else if (status == 2) //LED SEG3 is displaying
-	{
-		display7SEG(a_Pin, b_Pin, c_Pin, d_Pin, e_Pin, f_Pin, g_Pin,
-				    a_GPIO_Port, b_GPIO_Port, c_GPIO_Port, d_GPIO_Port, e_GPIO_Port, f_GPIO_Port, g_GPIO_Port,
-					3);
-
-		HAL_GPIO_WritePin(EN0_GPIO_Port, EN0_Pin, SET);
-		HAL_GPIO_WritePin(EN1_GPIO_Port, EN1_Pin, SET);
-		HAL_GPIO_WritePin(EN2_GPIO_Port, EN2_Pin, RESET);
-		HAL_GPIO_WritePin(EN3_GPIO_Port, EN3_Pin, SET);
-
-	}
-	else if (status == 3) //LED SEG3 is displaying
-	{
-		display7SEG(a_Pin, b_Pin, c_Pin, d_Pin, e_Pin, f_Pin, g_Pin,
-				    a_GPIO_Port, b_GPIO_Port, c_GPIO_Port, d_GPIO_Port, e_GPIO_Port, f_GPIO_Port, g_GPIO_Port,
-					0);
-
-		HAL_GPIO_WritePin(EN0_GPIO_Port, EN0_Pin, SET);
-		HAL_GPIO_WritePin(EN1_GPIO_Port, EN1_Pin, SET);
-		HAL_GPIO_WritePin(EN2_GPIO_Port, EN2_Pin, SET);
-		HAL_GPIO_WritePin(EN3_GPIO_Port, EN3_Pin, RESET);
-
-	}
-
 	if (counter2 <= 0) //switch LED RED every second
 	{
 		HAL_GPIO_TogglePin(LED_RED_GPIO_Port, LED_RED_Pin);
@@ -414,12 +365,61 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim) {
 	}
 
 	if (counter1 <= 0) {
-		switch(status) {
-			case 0: status = 1; break; //LEG SEG1 is displaying -> switch to LED SEG2
-			case 1: status = 2; break; //LEG SEG2 is displaying -> switch to LED SEG3
-			case 2: status = 3; break; //LEG SEG3 is displaying -> switch to LED SEG4
-			case 3: status = 0; break; //LEG SEG4 is displaying -> switch to LED SEG1
-			default: break;
+		if (status == 0) //LEG SEG1 is displaying
+		{
+			display7SEG(a_Pin, b_Pin, c_Pin, d_Pin, e_Pin, f_Pin, g_Pin,
+					    a_GPIO_Port, b_GPIO_Port, c_GPIO_Port, d_GPIO_Port, e_GPIO_Port, f_GPIO_Port, g_GPIO_Port,
+						1);
+
+			HAL_GPIO_WritePin(EN0_GPIO_Port, EN0_Pin, RESET);
+			HAL_GPIO_WritePin(EN1_GPIO_Port, EN1_Pin, SET);
+			HAL_GPIO_WritePin(EN2_GPIO_Port, EN2_Pin, SET);
+			HAL_GPIO_WritePin(EN3_GPIO_Port, EN3_Pin, SET);
+
+			status = 1;
+
+		}
+		else if (status == 1) //LEG SEG2 is displaying
+		{
+			display7SEG(a_Pin, b_Pin, c_Pin, d_Pin, e_Pin, f_Pin, g_Pin,
+					    a_GPIO_Port, b_GPIO_Port, c_GPIO_Port, d_GPIO_Port, e_GPIO_Port, f_GPIO_Port, g_GPIO_Port,
+						2);
+
+			HAL_GPIO_WritePin(EN0_GPIO_Port, EN0_Pin, SET);
+			HAL_GPIO_WritePin(EN1_GPIO_Port, EN1_Pin, RESET);
+			HAL_GPIO_WritePin(EN2_GPIO_Port, EN2_Pin, SET);
+			HAL_GPIO_WritePin(EN3_GPIO_Port, EN3_Pin, SET);
+
+			status = 2;
+
+		}
+		else if (status == 2) //LED SEG3 is displaying
+		{
+			display7SEG(a_Pin, b_Pin, c_Pin, d_Pin, e_Pin, f_Pin, g_Pin,
+					    a_GPIO_Port, b_GPIO_Port, c_GPIO_Port, d_GPIO_Port, e_GPIO_Port, f_GPIO_Port, g_GPIO_Port,
+						3);
+
+			HAL_GPIO_WritePin(EN0_GPIO_Port, EN0_Pin, SET);
+			HAL_GPIO_WritePin(EN1_GPIO_Port, EN1_Pin, SET);
+			HAL_GPIO_WritePin(EN2_GPIO_Port, EN2_Pin, RESET);
+			HAL_GPIO_WritePin(EN3_GPIO_Port, EN3_Pin, SET);
+
+			status = 3;
+
+		}
+		else if (status == 3) //LED SEG3 is displaying
+		{
+			display7SEG(a_Pin, b_Pin, c_Pin, d_Pin, e_Pin, f_Pin, g_Pin,
+					    a_GPIO_Port, b_GPIO_Port, c_GPIO_Port, d_GPIO_Port, e_GPIO_Port, f_GPIO_Port, g_GPIO_Port,
+						0);
+
+			HAL_GPIO_WritePin(EN0_GPIO_Port, EN0_Pin, SET);
+			HAL_GPIO_WritePin(EN1_GPIO_Port, EN1_Pin, SET);
+			HAL_GPIO_WritePin(EN2_GPIO_Port, EN2_Pin, SET);
+			HAL_GPIO_WritePin(EN3_GPIO_Port, EN3_Pin, RESET);
+
+			status = 0;
+
 		}
 		counter1 = 50; //reset counter1
 	}
