@@ -339,21 +339,6 @@ int status = 0; //LED 7SEG status
 int counter2 = 100; //LED RED counter
 
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim) {
-	if (status == 0) //LEG SEG1 is displaying
-	{
-		HAL_GPIO_WritePin(EN0_GPIO_Port, EN0_Pin, RESET);
-		HAL_GPIO_WritePin(EN1_GPIO_Port, EN1_Pin, SET);
-		display7SEG(a_Pin, b_Pin, c_Pin, d_Pin, e_Pin, f_Pin, g_Pin,
-				    a_GPIO_Port, b_GPIO_Port, c_GPIO_Port, d_GPIO_Port, e_GPIO_Port, f_GPIO_Port, g_GPIO_Port,
-					1);
-	} else if (status == 1) //LEG SEG2 is displaying
-	{
-		HAL_GPIO_WritePin(EN0_GPIO_Port, EN0_Pin, SET);
-		HAL_GPIO_WritePin(EN1_GPIO_Port, EN1_Pin, RESET);
-		display7SEG(a_Pin, b_Pin, c_Pin, d_Pin, e_Pin, f_Pin, g_Pin,
-				    a_GPIO_Port, b_GPIO_Port, c_GPIO_Port, d_GPIO_Port, e_GPIO_Port, f_GPIO_Port, g_GPIO_Port,
-					2);
-	}
 
 	if (counter2 <= 0) //switch LED RED every second
 	{
@@ -367,9 +352,23 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim) {
 	}
 
 	if (counter1 <= 0) {
-		switch(status) {
-			case 0: status = 1; break; //LEG SEG1 is displaying -> switch to LED SEG2
-			case 1: status = 0; break; //LEG SEG2 is displaying -> switch to LED SEG1
+		if (status == 0) //LEG SEG1 is displaying
+		{
+			HAL_GPIO_WritePin(EN0_GPIO_Port, EN0_Pin, RESET);
+			HAL_GPIO_WritePin(EN1_GPIO_Port, EN1_Pin, SET);
+			display7SEG(a_Pin, b_Pin, c_Pin, d_Pin, e_Pin, f_Pin, g_Pin,
+					    a_GPIO_Port, b_GPIO_Port, c_GPIO_Port, d_GPIO_Port, e_GPIO_Port, f_GPIO_Port, g_GPIO_Port,
+						1);
+			status = 1;
+		}
+		else if (status == 1) //LEG SEG2 is displaying
+		{
+			HAL_GPIO_WritePin(EN0_GPIO_Port, EN0_Pin, SET);
+			HAL_GPIO_WritePin(EN1_GPIO_Port, EN1_Pin, RESET);
+			display7SEG(a_Pin, b_Pin, c_Pin, d_Pin, e_Pin, f_Pin, g_Pin,
+					    a_GPIO_Port, b_GPIO_Port, c_GPIO_Port, d_GPIO_Port, e_GPIO_Port, f_GPIO_Port, g_GPIO_Port,
+						2);
+			status = 0;
 		}
 		counter1 = 50; //reset counter1
 	}
