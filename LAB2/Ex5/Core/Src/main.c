@@ -411,11 +411,27 @@ static void MX_GPIO_Init(void)
 
 /* USER CODE BEGIN 4 */
 int counter1 = 25; //LED 7SEG counter
+int counter2 = 200; //LED RED1 counter
+int counter3 = 100; //counter of two LEDs display the colon
 
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim) {
 
+	if (counter2 <= 0) //switch LED RED every 2 second
+	{
+		HAL_GPIO_TogglePin(LED_RED_GPIO_Port, LED_RED_Pin);
+		counter2 = 200; //reset counter2
+	}
+
+	if (counter3 <= 0) //display the colon every second
+	{
+		HAL_GPIO_TogglePin(DOT_GPIO_Port, DOT_Pin);
+		counter3 = 100; //reset counter3
+	}
+
 	if (htim -> Instance == TIM2) {
 		counter1--;
+		counter2--;
+		counter3--;
 	}
 
 	if (counter1 <= 0) {
