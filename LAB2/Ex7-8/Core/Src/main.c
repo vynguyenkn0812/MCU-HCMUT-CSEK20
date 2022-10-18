@@ -264,36 +264,36 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  setTimer0(25); //timer for 4 LED 7SEG
-  setTimer1(50); //timer for colon
+  setTimer0(250); //timer for 4 LED 7SEG
+  setTimer1(500); //timer for colon
   while (1)
   {
     /* USER CODE END WHILE */
-	  second++;
-	  if (second >= 60) {
-		  second = 0;
-		  minute++;
-	  }
-
-	  if (minute >= 60) {
-		  minute = 0;
-		  hour++;
-	  }
-
-	  if (hour >= 24) {
-		  hour = 0;
-	  }
-	  updateClockBuffer();
 
 	  if ( timer0_flag == 1) {
 		  update7SEG(index_led++);
 		  if (index_led >= 4) index_led = 0;
-		  setTimer0 (25) ;
+		  setTimer0(250);
+		  second++;
+		  if (second >= 60) {
+			  second = 0;
+			  minute++;
+		  }
+
+		  if (minute >= 60) {
+			  minute = 0;
+			  hour++;
+		  }
+
+		  if (hour >= 24) {
+			  hour = 0;
+		  }
+		  updateClockBuffer();
 	  }
 
 	  if ( timer1_flag == 1) {
 		  HAL_GPIO_TogglePin ( DOT_GPIO_Port, DOT_Pin ) ;
-		  setTimer1 (50) ;
+		  setTimer1 (500) ;
 	  }
     /* USER CODE BEGIN 3 */
   }
