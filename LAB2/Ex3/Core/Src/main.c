@@ -394,7 +394,7 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim) {
 	if (counter2 <= 0) //switch LED RED every 2 second
 	{
 		HAL_GPIO_TogglePin(LED_RED_GPIO_Port, LED_RED_Pin);
-		counter2 = 200; //reset counter2
+		counter2 = 100; //reset counter2
 	}
 
 	if (counter3 <= 0) //display the colon every second
