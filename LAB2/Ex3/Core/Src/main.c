@@ -169,7 +169,7 @@ int led_buffer[4] = {1, 2, 3, 4};
 
 void update7SEG(int index) {
 	switch(index) {
-	case 0:
+	case 0: //display led_buffer[0] on LED SEG1
 		display7SEG(a_Pin, b_Pin, c_Pin, d_Pin, e_Pin, f_Pin, g_Pin,
 				    a_GPIO_Port, b_GPIO_Port, c_GPIO_Port, d_GPIO_Port, e_GPIO_Port, f_GPIO_Port, g_GPIO_Port,
 					led_buffer[index]);
@@ -180,7 +180,7 @@ void update7SEG(int index) {
 		HAL_GPIO_WritePin(EN3_GPIO_Port, EN3_Pin, SET);
 
 		break;
-	case 1:
+	case 1: //display led_buffer[1] on LED SEG2
 		display7SEG(a_Pin, b_Pin, c_Pin, d_Pin, e_Pin, f_Pin, g_Pin,
 				    a_GPIO_Port, b_GPIO_Port, c_GPIO_Port, d_GPIO_Port, e_GPIO_Port, f_GPIO_Port, g_GPIO_Port,
 					led_buffer[index]);
@@ -191,7 +191,7 @@ void update7SEG(int index) {
 		HAL_GPIO_WritePin(EN3_GPIO_Port, EN3_Pin, SET);
 
 		break;
-	case 2:
+	case 2: //display led_buffer[2] on LED SEG3
 		display7SEG(a_Pin, b_Pin, c_Pin, d_Pin, e_Pin, f_Pin, g_Pin,
 				    a_GPIO_Port, b_GPIO_Port, c_GPIO_Port, d_GPIO_Port, e_GPIO_Port, f_GPIO_Port, g_GPIO_Port,
 					led_buffer[index]);
@@ -202,7 +202,7 @@ void update7SEG(int index) {
 		HAL_GPIO_WritePin(EN3_GPIO_Port, EN3_Pin, SET);
 
 		break;
-	case 3:
+	case 3: //display led_buffer[3] on LED SEG4
 		display7SEG(a_Pin, b_Pin, c_Pin, d_Pin, e_Pin, f_Pin, g_Pin,
 				    a_GPIO_Port, b_GPIO_Port, c_GPIO_Port, d_GPIO_Port, e_GPIO_Port, f_GPIO_Port, g_GPIO_Port,
 					led_buffer[index]);
