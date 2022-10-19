@@ -328,7 +328,7 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
-int counter1 = 50; //LED 7SEG counter
+int counter1 = 50; //LED 7SEG counter, switch LED 7SEG every 0.5 second
 int status = 0; //LED 7SEG status
 /*
  * status = 0: LED SEG1 display
@@ -336,7 +336,7 @@ int status = 0; //LED 7SEG status
  *
  */
 
-int counter2 = 100; //LED RED counter
+int counter2 = 100; //LED RED counter to switch LED every seconds
 
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim) {
 
