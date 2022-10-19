@@ -271,6 +271,7 @@ int main(void)
   * timer2_flag and setTimer2 is using to set timer for the colon, display every 500ms
   */
 
+  //setTimer for first time timer_flag change to 1
   setTimer0(100); //timer for LED-RED, turn on every second
   setTimer1(100); //timer for 4 LED 7SEG, switch every 250ms
   setTimer2(100); //timer for colon, display every 500ms
