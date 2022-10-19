@@ -265,12 +265,17 @@ int main(void)
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   setTimer0(500); //timer for LED-RED, turn on every second
-  setTimer1(250); //timer for 4 LED 7SEG
-  setTimer2(500); //timer for colon
+  setTimer1(250); //timer for 4 LED 7SEG, switch every 250ms
+  setTimer2(500); //timer for colon, display every 500ms
 
   while (1)
   {
     /* USER CODE END WHILE */
+	  /*
+	   * timer0_flag is using to set timer for LED RED
+	   * timer1_flag is using to set timer for LED 7SEG
+	   * timer2_flag is using to set timer for the colon
+	   */
 	  if ( timer0_flag == 1) {
 		  HAL_GPIO_TogglePin ( LED_RED_GPIO_Port, LED_RED_Pin ) ;
 		  setTimer0 (500) ;
