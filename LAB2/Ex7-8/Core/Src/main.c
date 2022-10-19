@@ -266,27 +266,21 @@ int main(void)
   /* USER CODE BEGIN WHILE */
 
   /*
-  * timer0_flag and setTimer0 is using to set timer for LED RED
-  * timer1_flag and setTimer1 is using to set timer for LED 7SEG
-  * timer2_flag and setTimer2 is using to set timer for the colon
+  * timer0_flag and setTimer0 is using to set timer for LED RED, switch every second
+  * timer1_flag and setTimer1 is using to set timer for LED 7SEG, switch every 250ms
+  * timer2_flag and setTimer2 is using to set timer for the colon, display every 500ms
   */
 
-  setTimer0(500); //timer for LED-RED, turn on every second
-  setTimer1(250); //timer for 4 LED 7SEG, switch every 250ms
-  setTimer2(500); //timer for colon, display every 500ms
+  setTimer0(100); //timer for LED-RED, turn on every second
+  setTimer1(100); //timer for 4 LED 7SEG, switch every 250ms
+  setTimer2(100); //timer for colon, display every 500ms
 
   while (1)
   {
     /* USER CODE END WHILE */
 	  if ( timer0_flag == 1) {
 		  HAL_GPIO_TogglePin ( LED_RED_GPIO_Port, LED_RED_Pin ) ;
-		  setTimer0 (500) ;
-	  }
-
-	  if ( timer1_flag == 1) {
-		  update7SEG(index_led++);
-		  if (index_led >= 4) index_led = 0;
-		  setTimer1(250);
+		  setTimer0 (1000) ;
 		  second++;
 		  if (second >= 60) {
 			  second = 0;
@@ -302,6 +296,13 @@ int main(void)
 			  hour = 0;
 		  }
 		  updateClockBuffer();
+
+	  }
+
+	  if ( timer1_flag == 1) {
+		  update7SEG(index_led++);
+		  if (index_led >= 4) index_led = 0;
+		  setTimer1(250);
 	  }
 
 	  if ( timer2_flag == 1) {
