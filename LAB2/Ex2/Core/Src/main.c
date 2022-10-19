@@ -333,7 +333,7 @@ static void MX_GPIO_Init(void)
 /* USER CODE BEGIN 4 */
 int counter1 = 50; //LED 7SEG counter, switch every 0.5 second
 int counter2 = 100; //LED RED1 counter, switch every second
-int counter3 = 100; //counter of two LEDs display the colon
+int counter3 = 100; //counter of two LEDs display the colon, switch every second
 
 int status = 0; //LED 7SEG status
 /*
