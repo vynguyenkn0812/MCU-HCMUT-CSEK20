@@ -380,7 +380,7 @@ void updateLEDMatrix(int index) {
 			HAL_GPIO_WritePin(ENM7_GPIO_Port, ENM7_Pin, SET);
 			break;
 	}
-	updateLEDMatrix(matrix_buffer[index]);
+	displayLEDMatrix(matrix_buffer[index]);
 }
 
 void shiftLeft() {
@@ -439,10 +439,18 @@ int main(void)
   setTimer1(100); //timer for 4 LED 7SEG, switch every 250ms
   setTimer2(100); //timer for colon, display every 500ms
   setTimer3(100);
+  setTimer4(100);
 
   /*
    * A:
-   *
+   * 0 0 0 1 1 0 0 0
+   * 0 0 1 1 1 1 0 0
+   * 0 1 1 0 0 1 1 0
+   * 0 1 1 0 0 1 1 0
+   * 0 1 1 1 1 1 1 0
+   * 0 1 1 1 1 1 1 0
+   * 0 1 1 0 0 1 1 0
+   * 0 1 1 0 0 1 1 0
    */
 
   matrix_buffer[0] = 0x00;
@@ -491,9 +499,13 @@ int main(void)
 	  if ( timer3_flag == 1) {
 		  updateLEDMatrix(index_led_matrix++);
 		  if (index_led_matrix >= 8) index_led_matrix = 0;
-		  setTimer3(100);
+		  setTimer3(50);
 	  }
 
+	  if ( timer4_flag == 1) {
+		  shiftLeft();
+		  setTimer4(8*50);
+	  }
 
     /* USER CODE BEGIN 3 */
   }
