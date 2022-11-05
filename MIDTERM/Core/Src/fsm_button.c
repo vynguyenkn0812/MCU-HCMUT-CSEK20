@@ -18,6 +18,7 @@ void fsm_simple_button_run() {
 			setTimer1(50); //This timer is used for count time to change counter when button is long-pressed
 			setTimer2(50); //This timer is used for auto count down (NORMAL) state
 			setTimer3(50); //This timer is used for time out to NORMAL state
+			setTimer4(50); //This timer is used for blinking led to Debugging
 
 		case NORMAL:
 			if (timer2_flag == 1) {
