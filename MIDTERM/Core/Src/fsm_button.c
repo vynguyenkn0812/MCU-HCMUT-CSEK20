@@ -8,17 +8,13 @@
 #include "fsm_button.h"
 
 void fsm_simple_button_run() {
-	if (timer2_flag == 1) {
-		blinkyLED(LED_RED_GPIO_Port, LED_RED_Pin);
-		setTimer2(1000);
-	}
-
 	switch(button_status) {
 		case INIT:
 			button_status = NORMAL;
 			counter = 10;
 			setTimer1(50);
 			setTimer2(50);
+			setTimer3(50);
 
 		case NORMAL:
 			if (timer1_flag == 1) {
@@ -42,7 +38,6 @@ void fsm_simple_button_run() {
 							LED7_0_GPIO_Port, LED7_1_GPIO_Port, LED7_2_GPIO_Port, LED7_3_GPIO_Port, LED7_4_GPIO_Port, LED7_5_GPIO_Port, LED7_6_GPIO_Port,
 							counter);
 			}
-
 
 			break;
 
@@ -87,6 +82,10 @@ void fsm_simple_button_run() {
 		button_status = BUTTON_INC;
 	} else if (flagForButtonPress[BUTTON_DEC - 11] == 1) {
 		button_status = BUTTON_DEC;
+	} else if (flagForButtonLongPress[BUTTON_INC - 11] == 1) {
+		button_status = BUTTON_INC_LONG_PRESSED;
+	} else if (flagForButtonLongPress[BUTTON_DEC - 11] == 1) {
+		button_status = BUTTON_DEC_LONG_PRESSED;
 	}
 
 }

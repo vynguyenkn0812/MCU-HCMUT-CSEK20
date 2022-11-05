@@ -14,6 +14,9 @@
 #define BUTTON_INC		12
 #define BUTTON_DEC		13
 
+#define BUTTON_INC_LONG_PRESSED		22
+#define BUTTON_DEC_LONG_PRESSED		23
+
 extern int counter;
 extern int button_status;
 

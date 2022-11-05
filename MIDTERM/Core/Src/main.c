@@ -103,6 +103,8 @@ int main(void)
 
   setTimer1(50);
   setTimer2(50);
+  setTimer3(50);
+  setTimer4(50);
 
   //clear all LED
   clearLED(LED_RED_GPIO_Port, LED_RED_Pin);

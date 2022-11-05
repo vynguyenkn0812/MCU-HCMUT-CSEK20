@@ -38,11 +38,14 @@ GPIO_PinState KeyInput(int index) {
 }
 
 void subKeyProcess(int index) {
+
 	flagForButtonPress[index] = 1;
 }
 
 void subKeyLongProcess(int index) {
+
 	flagForButtonLongPress[index] = 1;
+
 }
 
 int isPressedButton(int index) {
@@ -81,6 +84,7 @@ void getKeyInput() {
 			(debounceButtonBuffer1[i] == debounceButtonBuffer2[i])) {
 			if (debounceButtonBuffer2[i] != buttonBuffer[i]) {
 				buttonBuffer[i] = debounceButtonBuffer2[i];
+				isLongPressButton(i);
 
 				if (buttonBuffer[i] == BUTTON_IS_PRESSED) {
 					counterForButtonLongPress[i] = DURATION_FOR_AUTO_INCREASING;
@@ -90,6 +94,7 @@ void getKeyInput() {
 				counterForButtonLongPress[i]--;
 				if (counterForButtonLongPress[i] <= 0) {
 					if (debounceButtonBuffer2[i] == BUTTON_IS_PRESSED) {
+						isPressedButton(i);
 						subKeyLongProcess(i);
 					}
 					counterForButtonLongPress[i] = DURATION_FOR_AUTO_INCREASING;
