@@ -24,9 +24,11 @@
 /* USER CODE BEGIN Includes */
 #include "button.h"
 #include "display_LED.h"
+#include "fsm_button_longpressed.h"
 #include "fsm_button.h"
 #include "global.h"
 #include "software_timer.h"
+#include "Blinking_LED.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -116,6 +118,8 @@ int main(void)
 
     /* USER CODE BEGIN 3 */
 	  fsm_simple_button_run();
+	  fsm_longpress_buttons_run();
+	  Blinking_LED();
 
   }
   /* USER CODE END 3 */
