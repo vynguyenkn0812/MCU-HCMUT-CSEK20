@@ -101,17 +101,13 @@ int main(void)
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
 
-  setTimer1(50);
-  setTimer2(50);
-  setTimer3(50);
-  setTimer4(50);
-
   //clear all LED
   clearLED(LED_RED_GPIO_Port, LED_RED_Pin);
 
   clear7SEG(LED7_0_Pin, LED7_1_Pin, LED7_2_Pin, LED7_3_Pin, LED7_4_Pin, LED7_5_Pin, LED7_6_Pin,
 		  	LED7_0_GPIO_Port, LED7_1_GPIO_Port, LED7_2_GPIO_Port, LED7_3_GPIO_Port, LED7_4_GPIO_Port, LED7_5_GPIO_Port, LED7_6_GPIO_Port);
 
+  //Initial state
   button_status = INIT;
 
   while (1)
@@ -120,7 +116,7 @@ int main(void)
 
     /* USER CODE BEGIN 3 */
 	  fsm_simple_button_run();
-	  fsm_longpress_buttons_run();
+
 	  Blinking_LED();
 
   }
