@@ -11,6 +11,7 @@
 #include "main.h"
 #include "software_timer.h"
 #include "display_LED.h"
+#include "global.h"
 
 
 void Blinking_LED();

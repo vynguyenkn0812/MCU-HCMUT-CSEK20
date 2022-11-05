@@ -10,3 +10,4 @@
 
 int button_status = 0;
 int counter = 0;
+int led_status = 0;

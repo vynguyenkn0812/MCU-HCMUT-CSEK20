@@ -14,11 +14,6 @@ void fsm_simple_button_run() {
 			display7SEG(LED7_0_Pin, LED7_1_Pin, LED7_2_Pin, LED7_3_Pin, LED7_4_Pin, LED7_5_Pin, LED7_6_Pin,
 						LED7_0_GPIO_Port, LED7_1_GPIO_Port, LED7_2_GPIO_Port, LED7_3_GPIO_Port, LED7_4_GPIO_Port, LED7_5_GPIO_Port, LED7_6_GPIO_Port,
 						counter);
-			//call Timer to change timer_flag to 1
-			setTimer1(50); //This timer is used for count time to change counter when button is long-pressed
-			setTimer2(50); //This timer is used for auto count down (NORMAL) state
-			setTimer3(50); //This timer is used for time out to NORMAL state
-			setTimer4(50); //This timer is used for blinking led to Debugging
 
 		case NORMAL:
 			if (timer2_flag == 1) {
@@ -94,7 +89,7 @@ void fsm_simple_button_run() {
 	}
 
 	//Change the button_status if flag of button is 1
-	if (flagForButtonPress[0] == 1) {
+	if (flagForButtonPress[0] == 1 || flagForButtonLongPress[0] == 1) {
 		button_status = BUTTON_RESET;
 	} else if (flagForButtonPress[1] == 1) {
 		button_status = BUTTON_INC;
