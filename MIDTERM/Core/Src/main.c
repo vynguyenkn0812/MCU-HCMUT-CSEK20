@@ -124,6 +124,7 @@ int main(void)
     /* USER CODE BEGIN 3 */
 	  fsm_simple_button_run();
 	  fsm_longpress_buttons_run();
+	  fsm_automatic_run();
 	  Blinking_LED();
 
   }
