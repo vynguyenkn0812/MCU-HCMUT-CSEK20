@@ -17,33 +17,22 @@ void fsm_simple_button_run() {
 		case INIT:
 			button_status = NORMAL;
 			counter = 10;
-			setTimer1(100);
-			setTimer2(100);
+			setTimer1(50);
+			setTimer2(50);
 
 		case NORMAL:
-			if (flagForButtonPress[BUTTON_RESET - 11] == 1) {
-				button_status = BUTTON_RESET;
-				clearTimer1();
-			} else if (flagForButtonPress[BUTTON_INC - 11] == 1) {
-				button_status = BUTTON_INC;
-				clearTimer1();
-			} else if (flagForButtonPress[BUTTON_DEC - 11] == 1) {
-				button_status = BUTTON_DEC;
-				clearTimer1();
-			} else {
-
-				if (timer1_flag == 1) {
-					if (counter > 0) {
-						counter--;
-					}
-
-					display7SEG(LED7_0_Pin, LED7_1_Pin, LED7_2_Pin, LED7_3_Pin, LED7_4_Pin, LED7_5_Pin, LED7_6_Pin,
-								LED7_0_GPIO_Port, LED7_1_GPIO_Port, LED7_2_GPIO_Port, LED7_3_GPIO_Port, LED7_4_GPIO_Port, LED7_5_GPIO_Port, LED7_6_GPIO_Port,
-								counter);
-
-					setTimer1(1000);
+			if (timer1_flag == 1) {
+				if (counter > 0) {
+					counter--;
 				}
+
+				display7SEG(LED7_0_Pin, LED7_1_Pin, LED7_2_Pin, LED7_3_Pin, LED7_4_Pin, LED7_5_Pin, LED7_6_Pin,
+							LED7_0_GPIO_Port, LED7_1_GPIO_Port, LED7_2_GPIO_Port, LED7_3_GPIO_Port, LED7_4_GPIO_Port, LED7_5_GPIO_Port, LED7_6_GPIO_Port,
+							counter);
+
+				setTimer1(1000);
 			}
+
 			break;
 
 		case BUTTON_RESET:
@@ -54,13 +43,6 @@ void fsm_simple_button_run() {
 							counter);
 			}
 
-			if (flagForButtonPress[BUTTON_RESET - 11] == 1) {
-				button_status = BUTTON_RESET;
-			} else if (flagForButtonPress[BUTTON_INC - 11] == 1) {
-				button_status = BUTTON_INC;
-			} else if (flagForButtonPress[BUTTON_DEC - 11] == 1) {
-				button_status = BUTTON_DEC;
-			}
 
 			break;
 
@@ -75,14 +57,6 @@ void fsm_simple_button_run() {
 				display7SEG(LED7_0_Pin, LED7_1_Pin, LED7_2_Pin, LED7_3_Pin, LED7_4_Pin, LED7_5_Pin, LED7_6_Pin,
 							LED7_0_GPIO_Port, LED7_1_GPIO_Port, LED7_2_GPIO_Port, LED7_3_GPIO_Port, LED7_4_GPIO_Port, LED7_5_GPIO_Port, LED7_6_GPIO_Port,
 							counter);
-			}
-
-			if (flagForButtonPress[BUTTON_RESET - 11] == 1) {
-				button_status = BUTTON_RESET;
-			} else if (flagForButtonPress[BUTTON_INC - 11] == 1) {
-				button_status = BUTTON_INC;
-			} else if (flagForButtonPress[BUTTON_DEC - 11] == 1) {
-				button_status = BUTTON_DEC;
 			}
 
 			break;
@@ -101,17 +75,18 @@ void fsm_simple_button_run() {
 							counter);
 			}
 
-			if (flagForButtonPress[BUTTON_RESET - 11] == 1) {
-				button_status = BUTTON_RESET;
-			} else if (flagForButtonPress[BUTTON_INC - 11] == 1) {
-				button_status = BUTTON_INC;
-			} else if (flagForButtonPress[BUTTON_DEC - 11] == 1) {
-				button_status = BUTTON_DEC;
-			}
-
 			break;
 
 		default:
 			break;
 	}
+
+	if (flagForButtonPress[BUTTON_RESET - 11] == 1) {
+		button_status = BUTTON_RESET;
+	} else if (flagForButtonPress[BUTTON_INC - 11] == 1) {
+		button_status = BUTTON_INC;
+	} else if (flagForButtonPress[BUTTON_DEC - 11] == 1) {
+		button_status = BUTTON_DEC;
+	}
+
 }

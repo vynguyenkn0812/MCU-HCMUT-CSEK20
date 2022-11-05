@@ -99,6 +99,9 @@ int main(void)
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
 
+  setTimer1(50);
+  setTimer2(50);
+
   //clear all LED
   clearLED(LED_RED_GPIO_Port, LED_RED_Pin);
 
