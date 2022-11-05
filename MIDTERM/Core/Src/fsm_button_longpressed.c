@@ -22,6 +22,8 @@ void fsm_longpress_buttons_run() {
 								counter);
 					setTimer3(1000);
 				}
+				clearTimer4();
+				setTimer4(10000);
 			}
 
 			break;
@@ -39,22 +41,14 @@ void fsm_longpress_buttons_run() {
 								counter);
 					setTimer3(1000);
 				}
+				clearTimer4();
+				setTimer4(10000);
+
 			}
 
 			break;
 
 		default:
 			break;
-	}
-	if (flagForButtonPress[BUTTON_RESET - 11] == 1) {
-		button_status = BUTTON_RESET;
-	} else if (flagForButtonPress[BUTTON_INC - 11] == 1) {
-		button_status = BUTTON_INC;
-	} else if (flagForButtonPress[BUTTON_DEC - 11] == 1) {
-		button_status = BUTTON_DEC;
-	} else if (flagForButtonLongPress[BUTTON_INC - 11] == 1) {
-		button_status = BUTTON_INC_LONG_PRESSED;
-	} else if (flagForButtonLongPress[BUTTON_DEC - 11] == 1) {
-		button_status = BUTTON_DEC_LONG_PRESSED;
 	}
 }

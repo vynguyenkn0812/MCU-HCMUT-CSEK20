@@ -15,6 +15,7 @@ void fsm_simple_button_run() {
 			setTimer1(50);
 			setTimer2(50);
 			setTimer3(50);
+			setTimer4(50);
 
 		case NORMAL:
 			if (timer1_flag == 1) {
@@ -37,6 +38,9 @@ void fsm_simple_button_run() {
 				display7SEG(LED7_0_Pin, LED7_1_Pin, LED7_2_Pin, LED7_3_Pin, LED7_4_Pin, LED7_5_Pin, LED7_6_Pin,
 							LED7_0_GPIO_Port, LED7_1_GPIO_Port, LED7_2_GPIO_Port, LED7_3_GPIO_Port, LED7_4_GPIO_Port, LED7_5_GPIO_Port, LED7_6_GPIO_Port,
 							counter);
+				clearTimer4();
+				setTimer4(10000);
+
 			}
 
 			break;
@@ -52,6 +56,9 @@ void fsm_simple_button_run() {
 				display7SEG(LED7_0_Pin, LED7_1_Pin, LED7_2_Pin, LED7_3_Pin, LED7_4_Pin, LED7_5_Pin, LED7_6_Pin,
 							LED7_0_GPIO_Port, LED7_1_GPIO_Port, LED7_2_GPIO_Port, LED7_3_GPIO_Port, LED7_4_GPIO_Port, LED7_5_GPIO_Port, LED7_6_GPIO_Port,
 							counter);
+				clearTimer4();
+				setTimer4(10000);
+
 			}
 
 			break;
@@ -68,6 +75,9 @@ void fsm_simple_button_run() {
 				display7SEG(LED7_0_Pin, LED7_1_Pin, LED7_2_Pin, LED7_3_Pin, LED7_4_Pin, LED7_5_Pin, LED7_6_Pin,
 							LED7_0_GPIO_Port, LED7_1_GPIO_Port, LED7_2_GPIO_Port, LED7_3_GPIO_Port, LED7_4_GPIO_Port, LED7_5_GPIO_Port, LED7_6_GPIO_Port,
 							counter);
+				clearTimer4();
+				setTimer4(10000);
+
 			}
 
 			break;
@@ -86,6 +96,11 @@ void fsm_simple_button_run() {
 		button_status = BUTTON_INC_LONG_PRESSED;
 	} else if (flagForButtonLongPress[BUTTON_DEC - 11] == 1) {
 		button_status = BUTTON_DEC_LONG_PRESSED;
+	} else {
+		if (timer4_flag == 1) {
+			button_status = NORMAL;
+			clearTimer4();
+		}
 	}
 
 }
