@@ -9,7 +9,7 @@
 
 
 void Blinking_LED() {
-	if (timer2_flag == 1) {
+	if (timer4_flag == 1) {
 		blinkyLED(LED_RED_GPIO_Port, LED_RED_Pin);
 		setTimer2(1000);
 	}

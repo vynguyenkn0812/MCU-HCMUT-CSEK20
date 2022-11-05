@@ -23,6 +23,11 @@ void fsm_longpress_buttons_run() {
 								counter);
 					setTimer1(1000);
 				}
+
+				//if button is pressed -> reset the timer out timer
+				clearTimer3();
+				setTimer3(10000);
+
 			}
 
 			break;
@@ -40,6 +45,11 @@ void fsm_longpress_buttons_run() {
 								counter);
 					setTimer1(1000);
 				}
+
+				//if button is pressed -> reset the timer out timer
+				clearTimer3();
+				setTimer3(10000);
+
 			}
 
 			break;
