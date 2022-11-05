@@ -7,5 +7,6 @@
 
 #include "global.h"
 
+
 int button_status = 0;
-int counter = 9;
+int counter = 0;

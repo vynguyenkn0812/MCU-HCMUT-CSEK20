@@ -9,13 +9,14 @@
 #define INC_GLOBAL_H_
 
 #define INIT			0
-#define NORMAL			10
-#define BUTTON_RESET	11
-#define BUTTON_INC		12
-#define BUTTON_DEC		13
+#define NORMAL			1
 
-#define BUTTON_INC_LONG_PRESSED		22
-#define BUTTON_DEC_LONG_PRESSED		23
+#define BUTTON_RESET	10
+#define BUTTON_INC		11
+#define BUTTON_DEC		12
+
+#define BUTTON_INC_LONG_PRESSED		21
+#define BUTTON_DEC_LONG_PRESSED		22
 
 extern int counter;
 extern int button_status;
