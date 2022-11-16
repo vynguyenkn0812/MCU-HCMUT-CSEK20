@@ -21,15 +21,23 @@ void fsm_automatic_run1() {
 				status3 = MAN_RED;
 
 				count_down1 = -1;
+				man_red_time = red_time;
+				man_yellow_time = yellow_time;
+				man_green_time = green_time;
 
 				ClearAllLED();
 				ClearLEDSEG();
 				TurnOnLED(LED_RED1_GPIO_Port, LED_RED1_Pin);
 				TurnOnLED(LED_RED2_GPIO_Port, LED_RED2_Pin);
+
+				HAL_GPIO_WritePin(EN0_GPIO_Port, EN0_Pin, RESET);
 				display7SEG(a1_Pin, b1_Pin, c1_Pin, d1_Pin, e1_Pin, f1_Pin, g1_Pin,
 							a1_GPIO_Port, b1_GPIO_Port, c1_GPIO_Port, d1_GPIO_Port, e1_GPIO_Port, f1_GPIO_Port, g1_GPIO_Port,
 							1);
 
+				clearTimer1();
+				clearTimer2();
+				clearTimer3();
 				setTimer4(500);
 			}
 
@@ -52,18 +60,23 @@ void fsm_automatic_run1() {
 				status3 = MAN_RED;
 
 				count_down1 = -1;
+				man_red_time = red_time;
+				man_yellow_time = yellow_time;
+				man_green_time = green_time;
 
 				ClearAllLED();
 				ClearLEDSEG();
 				TurnOnLED(LED_RED1_GPIO_Port, LED_RED1_Pin);
 				TurnOnLED(LED_RED2_GPIO_Port, LED_RED2_Pin);
 
-				TurnOnLED(LED_RED1_GPIO_Port, LED_RED1_Pin);
-				TurnOnLED(LED_RED2_GPIO_Port, LED_RED2_Pin);
+				HAL_GPIO_WritePin(EN0_GPIO_Port, EN0_Pin, RESET);
 				display7SEG(a1_Pin, b1_Pin, c1_Pin, d1_Pin, e1_Pin, f1_Pin, g1_Pin,
 							a1_GPIO_Port, b1_GPIO_Port, c1_GPIO_Port, d1_GPIO_Port, e1_GPIO_Port, f1_GPIO_Port, g1_GPIO_Port,
 							1);
 
+				clearTimer1();
+				clearTimer2();
+				clearTimer3();
 				setTimer4(500);
 			}
 
@@ -88,17 +101,23 @@ void fsm_automatic_run1() {
 				status3 = MAN_RED;
 
 				count_down1 = -1;
+				man_red_time = red_time;
+				man_yellow_time = yellow_time;
+				man_green_time = green_time;
 
 				ClearAllLED();
 				ClearLEDSEG();
 				TurnOnLED(LED_RED1_GPIO_Port, LED_RED1_Pin);
 				TurnOnLED(LED_RED2_GPIO_Port, LED_RED2_Pin);
-				TurnOnLED(LED_RED1_GPIO_Port, LED_RED1_Pin);
-				TurnOnLED(LED_RED2_GPIO_Port, LED_RED2_Pin);
+
+				HAL_GPIO_WritePin(EN0_GPIO_Port, EN0_Pin, RESET);
 				display7SEG(a1_Pin, b1_Pin, c1_Pin, d1_Pin, e1_Pin, f1_Pin, g1_Pin,
 							a1_GPIO_Port, b1_GPIO_Port, c1_GPIO_Port, d1_GPIO_Port, e1_GPIO_Port, f1_GPIO_Port, g1_GPIO_Port,
 							1);
 
+				clearTimer1();
+				clearTimer2();
+				clearTimer3();
 				setTimer4(500);
 			}
 
@@ -123,17 +142,23 @@ void fsm_automatic_run1() {
 				status3 = MAN_RED;
 
 				count_down1 = -1;
+				man_red_time = red_time;
+				man_yellow_time = yellow_time;
+				man_green_time = green_time;
 
 				ClearAllLED();
 				ClearLEDSEG();
 				TurnOnLED(LED_RED1_GPIO_Port, LED_RED1_Pin);
 				TurnOnLED(LED_RED2_GPIO_Port, LED_RED2_Pin);
-				TurnOnLED(LED_RED1_GPIO_Port, LED_RED1_Pin);
-				TurnOnLED(LED_RED2_GPIO_Port, LED_RED2_Pin);
+
+				HAL_GPIO_WritePin(EN0_GPIO_Port, EN0_Pin, RESET);
 				display7SEG(a1_Pin, b1_Pin, c1_Pin, d1_Pin, e1_Pin, f1_Pin, g1_Pin,
 							a1_GPIO_Port, b1_GPIO_Port, c1_GPIO_Port, d1_GPIO_Port, e1_GPIO_Port, f1_GPIO_Port, g1_GPIO_Port,
 							1);
 
+				clearTimer1();
+				clearTimer2();
+				clearTimer3();
 				setTimer4(500);
 			}
 
@@ -165,12 +190,15 @@ void fsm_automatic_run2() {
 				ClearLEDSEG();
 				TurnOnLED(LED_RED1_GPIO_Port, LED_RED1_Pin);
 				TurnOnLED(LED_RED2_GPIO_Port, LED_RED2_Pin);
-				TurnOnLED(LED_RED1_GPIO_Port, LED_RED1_Pin);
-				TurnOnLED(LED_RED2_GPIO_Port, LED_RED2_Pin);
+
+				HAL_GPIO_WritePin(EN0_GPIO_Port, EN0_Pin, RESET);
 				display7SEG(a1_Pin, b1_Pin, c1_Pin, d1_Pin, e1_Pin, f1_Pin, g1_Pin,
 							a1_GPIO_Port, b1_GPIO_Port, c1_GPIO_Port, d1_GPIO_Port, e1_GPIO_Port, f1_GPIO_Port, g1_GPIO_Port,
 							1);
 
+				clearTimer1();
+				clearTimer2();
+				clearTimer3();
 				setTimer4(500);
 			}
 
@@ -193,17 +221,23 @@ void fsm_automatic_run2() {
 				status3 = MAN_RED;
 
 				count_down2 = -1;
+				man_red_time = red_time;
+				man_yellow_time = yellow_time;
+				man_green_time = green_time;
 
 				ClearAllLED();
 				ClearLEDSEG();
 				TurnOnLED(LED_RED1_GPIO_Port, LED_RED1_Pin);
 				TurnOnLED(LED_RED2_GPIO_Port, LED_RED2_Pin);
-				TurnOnLED(LED_RED1_GPIO_Port, LED_RED1_Pin);
-				TurnOnLED(LED_RED2_GPIO_Port, LED_RED2_Pin);
+
+				HAL_GPIO_WritePin(EN0_GPIO_Port, EN0_Pin, RESET);
 				display7SEG(a1_Pin, b1_Pin, c1_Pin, d1_Pin, e1_Pin, f1_Pin, g1_Pin,
 							a1_GPIO_Port, b1_GPIO_Port, c1_GPIO_Port, d1_GPIO_Port, e1_GPIO_Port, f1_GPIO_Port, g1_GPIO_Port,
 							1);
 
+				clearTimer1();
+				clearTimer2();
+				clearTimer3();
 				setTimer4(500);
 			}
 
@@ -228,17 +262,23 @@ void fsm_automatic_run2() {
 				status3 = MAN_RED;
 
 				count_down2 = -1;
+				man_red_time = red_time;
+				man_yellow_time = yellow_time;
+				man_green_time = green_time;
 
 				ClearAllLED();
 				ClearLEDSEG();
 				TurnOnLED(LED_RED1_GPIO_Port, LED_RED1_Pin);
 				TurnOnLED(LED_RED2_GPIO_Port, LED_RED2_Pin);
-				TurnOnLED(LED_RED1_GPIO_Port, LED_RED1_Pin);
-				TurnOnLED(LED_RED2_GPIO_Port, LED_RED2_Pin);
+
+				HAL_GPIO_WritePin(EN0_GPIO_Port, EN0_Pin, RESET);
 				display7SEG(a1_Pin, b1_Pin, c1_Pin, d1_Pin, e1_Pin, f1_Pin, g1_Pin,
 							a1_GPIO_Port, b1_GPIO_Port, c1_GPIO_Port, d1_GPIO_Port, e1_GPIO_Port, f1_GPIO_Port, g1_GPIO_Port,
 							1);
 
+				clearTimer1();
+				clearTimer2();
+				clearTimer3();
 				setTimer4(500);
 			}
 
@@ -263,17 +303,23 @@ void fsm_automatic_run2() {
 				status3 = MAN_RED;
 
 				count_down2 = -1;
+				man_red_time = red_time;
+				man_yellow_time = yellow_time;
+				man_green_time = green_time;
 
 				ClearAllLED();
 				ClearLEDSEG();
 				TurnOnLED(LED_RED1_GPIO_Port, LED_RED1_Pin);
 				TurnOnLED(LED_RED2_GPIO_Port, LED_RED2_Pin);
-				TurnOnLED(LED_RED1_GPIO_Port, LED_RED1_Pin);
-				TurnOnLED(LED_RED2_GPIO_Port, LED_RED2_Pin);
+
+				HAL_GPIO_WritePin(EN0_GPIO_Port, EN0_Pin, RESET);
 				display7SEG(a1_Pin, b1_Pin, c1_Pin, d1_Pin, e1_Pin, f1_Pin, g1_Pin,
 							a1_GPIO_Port, b1_GPIO_Port, c1_GPIO_Port, d1_GPIO_Port, e1_GPIO_Port, f1_GPIO_Port, g1_GPIO_Port,
 							1);
 
+				clearTimer1();
+				clearTimer2();
+				clearTimer3();
 				setTimer4(500);
 			}
 
