@@ -28,6 +28,10 @@ void fsm_manual_run() {
 			man_red_time++;
 			if (man_red_time >= 100) man_red_time = 0;
 
+			ClearLEDSEG();
+			HAL_GPIO_WritePin(EN0_GPIO_Port, EN0_Pin, RESET);
+			HAL_GPIO_WritePin(EN1_GPIO_Port, EN1_Pin, RESET);
+
 			display7SEG(a1_Pin, b1_Pin, c1_Pin, d1_Pin, e1_Pin, f1_Pin, g1_Pin,
 						a1_GPIO_Port, b1_GPIO_Port, c1_GPIO_Port, d1_GPIO_Port, e1_GPIO_Port, f1_GPIO_Port, g1_GPIO_Port,
 						man_red_time / 10);
@@ -61,6 +65,19 @@ void fsm_manual_run() {
 		if (isPressedButton(1)) {
 			man_yellow_time++;
 			if (man_yellow_time >= 100) man_yellow_time = 0;
+
+			ClearLEDSEG();
+			HAL_GPIO_WritePin(EN0_GPIO_Port, EN0_Pin, RESET);
+			HAL_GPIO_WritePin(EN1_GPIO_Port, EN1_Pin, RESET);
+
+			display7SEG(a1_Pin, b1_Pin, c1_Pin, d1_Pin, e1_Pin, f1_Pin, g1_Pin,
+						a1_GPIO_Port, b1_GPIO_Port, c1_GPIO_Port, d1_GPIO_Port, e1_GPIO_Port, f1_GPIO_Port, g1_GPIO_Port,
+						man_yellow_time / 10);
+
+			display7SEG(a2_Pin, b2_Pin, c2_Pin, d2_Pin, e2_Pin, f2_Pin, g2_Pin,
+						a2_GPIO_Port, b2_GPIO_Port, c2_GPIO_Port, d2_GPIO_Port, e2_GPIO_Port, f2_GPIO_Port, g2_GPIO_Port,
+						man_yellow_time % 10);
+
 		}
 
 		if (isPressedButton(2)) {
@@ -87,6 +104,19 @@ void fsm_manual_run() {
 		if (isPressedButton(1)) {
 			man_green_time++;
 			if (man_green_time >= 100) man_green_time = 0;
+
+			ClearLEDSEG();
+			HAL_GPIO_WritePin(EN0_GPIO_Port, EN0_Pin, RESET);
+			HAL_GPIO_WritePin(EN1_GPIO_Port, EN1_Pin, RESET);
+
+			display7SEG(a1_Pin, b1_Pin, c1_Pin, d1_Pin, e1_Pin, f1_Pin, g1_Pin,
+						a1_GPIO_Port, b1_GPIO_Port, c1_GPIO_Port, d1_GPIO_Port, e1_GPIO_Port, f1_GPIO_Port, g1_GPIO_Port,
+						man_green_time / 10);
+
+			display7SEG(a2_Pin, b2_Pin, c2_Pin, d2_Pin, e2_Pin, f2_Pin, g2_Pin,
+						a2_GPIO_Port, b2_GPIO_Port, c2_GPIO_Port, d2_GPIO_Port, e2_GPIO_Port, f2_GPIO_Port, g2_GPIO_Port,
+						man_green_time % 10);
+
 		}
 
 		if (isPressedButton(2)) {
