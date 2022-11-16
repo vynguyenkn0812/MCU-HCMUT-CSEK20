@@ -13,7 +13,21 @@ void fsm_automatic_run1() {
 			status1 = AUTO_RED;
 			count_down1 = red_time;
 			setTimer1(50);
-			setTimer4(50);
+			setTimer3(50);
+
+			if (isPressedButton(0)) {
+				status1 = -1;
+				status3 = MAN_RED;
+
+				count_down1 = -1;
+
+				ClearAllLED();
+				ClearLEDSEG();
+				TurnOnLED(LED_RED1_GPIO_Port, LED_RED1_Pin);
+				TurnOnLED(LED_RED2_GPIO_Port, LED_RED2_Pin);
+				setTimer4(500);
+			}
+
 
 			break;
 		case AUTO_RED:
@@ -27,6 +41,19 @@ void fsm_automatic_run1() {
 				count_down1 = red_time;
 
 				setTimer1(red_time * 1000);
+			}
+
+			if (isPressedButton(0)) {
+				status1 = -1;
+				status3 = MAN_RED;
+
+				count_down1 = -1;
+
+				ClearAllLED();
+				ClearLEDSEG();
+				TurnOnLED(LED_RED1_GPIO_Port, LED_RED1_Pin);
+				TurnOnLED(LED_RED2_GPIO_Port, LED_RED2_Pin);
+				setTimer4(500);
 			}
 
 			displayLEDSEGCountingDown();
@@ -45,6 +72,19 @@ void fsm_automatic_run1() {
 				setTimer1(green_time * 1000);
 			}
 
+			if (isPressedButton(0)) {
+				status1 = -1;
+				status3 = MAN_RED;
+
+				count_down1 = -1;
+
+				ClearAllLED();
+				ClearLEDSEG();
+				TurnOnLED(LED_RED1_GPIO_Port, LED_RED1_Pin);
+				TurnOnLED(LED_RED2_GPIO_Port, LED_RED2_Pin);
+				setTimer4(500);
+			}
+
 			displayLEDSEGCountingDown();
 
 			break;
@@ -61,6 +101,19 @@ void fsm_automatic_run1() {
 				setTimer1(yellow_time * 1000);
 			}
 
+			if (isPressedButton(0)) {
+				status1 = -1;
+				status3 = MAN_RED;
+
+				count_down1 = -1;
+
+				ClearAllLED();
+				ClearLEDSEG();
+				TurnOnLED(LED_RED1_GPIO_Port, LED_RED1_Pin);
+				TurnOnLED(LED_RED2_GPIO_Port, LED_RED2_Pin);
+				setTimer4(500);
+			}
+
 			displayLEDSEGCountingDown();
 
 			break;
@@ -68,19 +121,6 @@ void fsm_automatic_run1() {
 			break;
 	}
 
-//	if (isPressedButton(0)) {
-//		status1 = -1;
-//		status2 = -1;
-//		status3 = MAN_RED;
-//
-//		count_down1 = -1;
-//		count_down2 = -1;
-//
-//		ClearAllLED();
-//		TurnOnLED(LED_RED1_GPIO_Port, LED_RED1_Pin);
-//		TurnOnLED(LED_RED2_GPIO_Port, LED_RED2_Pin);
-//		setTimer4(500);
-//	}
 }
 
 void fsm_automatic_run2() {
@@ -90,6 +130,20 @@ void fsm_automatic_run2() {
 			count_down2 = green_time;
 			setTimer2(50);
 			setTimer3(50);
+
+			if (isPressedButton(0)) {
+				status2 = -1;
+				status3 = MAN_RED;
+
+				count_down2 = -1;
+
+				ClearAllLED();
+				ClearLEDSEG();
+				TurnOnLED(LED_RED1_GPIO_Port, LED_RED1_Pin);
+				TurnOnLED(LED_RED2_GPIO_Port, LED_RED2_Pin);
+				setTimer4(500);
+			}
+
 			break;
 		case AUTO_RED:
 			if (timer2_flag == 1) {
@@ -102,6 +156,19 @@ void fsm_automatic_run2() {
 				count_down2 = red_time;
 
 				setTimer2(red_time * 1000);
+			}
+
+			if (isPressedButton(0)) {
+				status2 = -1;
+				status3 = MAN_RED;
+
+				count_down2 = -1;
+
+				ClearAllLED();
+				ClearLEDSEG();
+				TurnOnLED(LED_RED1_GPIO_Port, LED_RED1_Pin);
+				TurnOnLED(LED_RED2_GPIO_Port, LED_RED2_Pin);
+				setTimer4(500);
 			}
 
 			displayLEDSEGCountingDown();
@@ -120,6 +187,19 @@ void fsm_automatic_run2() {
 				setTimer2(green_time * 1000);
 			}
 
+			if (isPressedButton(0)) {
+				status2 = -1;
+				status3 = MAN_RED;
+
+				count_down2 = -1;
+
+				ClearAllLED();
+				ClearLEDSEG();
+				TurnOnLED(LED_RED1_GPIO_Port, LED_RED1_Pin);
+				TurnOnLED(LED_RED2_GPIO_Port, LED_RED2_Pin);
+				setTimer4(500);
+			}
+
 			displayLEDSEGCountingDown();
 
 			break;
@@ -136,25 +216,23 @@ void fsm_automatic_run2() {
 				setTimer2(yellow_time * 1000);
 			}
 
+			if (isPressedButton(0)) {
+				status2 = -1;
+				status3 = MAN_RED;
+
+				count_down2 = -1;
+
+				ClearAllLED();
+				ClearLEDSEG();
+				TurnOnLED(LED_RED1_GPIO_Port, LED_RED1_Pin);
+				TurnOnLED(LED_RED2_GPIO_Port, LED_RED2_Pin);
+				setTimer4(500);
+			}
+
 			displayLEDSEGCountingDown();
 
 			break;
 		default:
 			break;
 	}
-
-//	if (isPressedButton(0)) {
-//		status1 = -1;
-//		status2 = -1;
-//		status3 = MAN_RED;
-//
-//		count_down1 = -1;
-//		count_down2 = -1;
-//
-//		ClearAllLED();
-//		TurnOnLED(LED_RED1_GPIO_Port, LED_RED1_Pin);
-//		TurnOnLED(LED_RED2_GPIO_Port, LED_RED2_Pin);
-//		setTimer4(500);
-//	}
-
 }

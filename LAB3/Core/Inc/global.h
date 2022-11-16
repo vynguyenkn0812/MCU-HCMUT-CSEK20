@@ -23,6 +23,8 @@ extern int man_red_time;
 extern int man_green_time;
 extern int man_yellow_time;
 
+#define BLINKY_TIME 500
+
 #define RED_TIME 	5
 #define YELLOW_TIME 2
 #define GREEN_TIME	3

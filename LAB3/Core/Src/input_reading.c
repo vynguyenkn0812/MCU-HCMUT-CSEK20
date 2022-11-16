@@ -84,18 +84,18 @@ void getKeyInput() {
 			(debounceButtonBuffer1[i] == debounceButtonBuffer2[i])) {
 			if (debounceButtonBuffer2[i] != buttonBuffer[i]) {
 				buttonBuffer[i] = debounceButtonBuffer2[i];
-				isLongPressButton(i);
+				isLongPressButton(i); //off long-pressed flag
 
 				if (buttonBuffer[i] == BUTTON_IS_PRESSED) {
 					counterForButtonLongPress[i] = DURATION_FOR_AUTO_INCREASING;
-					subKeyProcess(i);
+					subKeyProcess(i); //set pressed flag
 				}
 			} else {
 				counterForButtonLongPress[i]--;
 				if (counterForButtonLongPress[i] <= 0) {
 					if (debounceButtonBuffer2[i] == BUTTON_IS_PRESSED) {
-						isPressedButton(i);
-						subKeyLongProcess(i);
+						isPressedButton(i); //off pressed flag
+						subKeyLongProcess(i); //set long-pressed flag
 					}
 					counterForButtonLongPress[i] = DURATION_FOR_AUTO_INCREASING;
 				}

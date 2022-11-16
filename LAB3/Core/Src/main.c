@@ -107,7 +107,7 @@ int main(void)
   // Initial status
   status1 = INIT;
   status2 = INIT;
-//  status3 = -1;
+  status3 = -1;
 
   // Reset counter of LEDs
   count_down1 = 0; //counter for LED1s
@@ -126,7 +126,7 @@ int main(void)
     /* USER CODE BEGIN 3 */
 	  fsm_automatic_run1();
 	  fsm_automatic_run2();
-//	  fsm_manual_run();
+	  fsm_manual_run();
   }
   /* USER CODE END 3 */
 }

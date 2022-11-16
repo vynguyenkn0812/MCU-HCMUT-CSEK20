@@ -9,14 +9,11 @@
 
 void fsm_manual_run() {
 	switch(status3) {
-	case INIT:
-		status1 = INIT;
-		status2 = INIT;
 	case MAN_RED:
 		if (timer4_flag == 1) {
 			ToggleLED(LED_RED1_GPIO_Port, LED_RED1_Pin);
 			ToggleLED(LED_RED2_GPIO_Port, LED_RED2_Pin);
-			setTimer4(500);
+			setTimer4(BLINKY_TIME);
 		}
 
 		if (isPressedButton(0)) {
@@ -24,7 +21,7 @@ void fsm_manual_run() {
 			ClearAllLED();
 			TurnOnLED(LED_YELLOW1_GPIO_Port, LED_YELLOW1_Pin);
 			TurnOnLED(LED_YELLOW2_GPIO_Port, LED_YELLOW2_Pin);
-			setTimer4(500);
+			setTimer4(BLINKY_TIME);
 		}
 
 		if (isPressedButton(1)) {
@@ -41,7 +38,7 @@ void fsm_manual_run() {
 		if (timer4_flag == 1) {
 			ToggleLED(LED_YELLOW1_GPIO_Port, LED_YELLOW1_Pin);
 			ToggleLED(LED_YELLOW2_GPIO_Port, LED_YELLOW2_Pin);
-			setTimer4(500);
+			setTimer4(BLINKY_TIME);
 		}
 
 		if (isPressedButton(0)) {
@@ -49,7 +46,7 @@ void fsm_manual_run() {
 			ClearAllLED();
 			TurnOnLED(LED_GREEN1_GPIO_Port, LED_GREEN1_Pin);
 			TurnOnLED(LED_GREEN2_GPIO_Port, LED_GREEN2_Pin);
-			setTimer4(500);
+			setTimer4(BLINKY_TIME);
 		}
 
 		if (isPressedButton(1)) {
@@ -66,11 +63,14 @@ void fsm_manual_run() {
 		if (timer4_flag == 1) {
 			ToggleLED(LED_GREEN1_GPIO_Port, LED_GREEN1_Pin);
 			ToggleLED(LED_GREEN2_GPIO_Port, LED_GREEN2_Pin);
-			setTimer4(500);
+			setTimer4(BLINKY_TIME);
 		}
 
 		if (isPressedButton(0)) {
-			status3 = INIT;
+			status1 = INIT;
+			status2 = INIT;
+			status3 = -1;
+
 			ClearAllLED();
 			ClearLEDSEG();
 		}
