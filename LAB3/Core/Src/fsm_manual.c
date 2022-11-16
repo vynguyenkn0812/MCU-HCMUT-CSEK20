@@ -10,6 +10,11 @@
 void fsm_manual_run() {
 	switch(status3) {
 	case MAN_RED:
+		HAL_GPIO_WritePin(EN0_GPIO_Port, EN0_Pin, RESET);
+		display7SEG(a1_Pin, b1_Pin, c1_Pin, d1_Pin, e1_Pin, f1_Pin, g1_Pin,
+					a1_GPIO_Port, b1_GPIO_Port, c1_GPIO_Port, d1_GPIO_Port, e1_GPIO_Port, f1_GPIO_Port, g1_GPIO_Port,
+					1);
+
 		if (timer4_flag == 1) {
 			ToggleLED(LED_RED1_GPIO_Port, LED_RED1_Pin);
 			ToggleLED(LED_RED2_GPIO_Port, LED_RED2_Pin);
@@ -47,7 +52,13 @@ void fsm_manual_run() {
 		}
 
 		break;
+
 	case MAN_YELLOW:
+		HAL_GPIO_WritePin(EN0_GPIO_Port, EN0_Pin, RESET);
+		display7SEG(a1_Pin, b1_Pin, c1_Pin, d1_Pin, e1_Pin, f1_Pin, g1_Pin,
+					a1_GPIO_Port, b1_GPIO_Port, c1_GPIO_Port, d1_GPIO_Port, e1_GPIO_Port, f1_GPIO_Port, g1_GPIO_Port,
+					2);
+
 		if (timer4_flag == 1) {
 			ToggleLED(LED_YELLOW1_GPIO_Port, LED_YELLOW1_Pin);
 			ToggleLED(LED_YELLOW2_GPIO_Port, LED_YELLOW2_Pin);
@@ -85,7 +96,13 @@ void fsm_manual_run() {
 		}
 
 		break;
+
 	case MAN_GREEN:
+		HAL_GPIO_WritePin(EN0_GPIO_Port, EN0_Pin, RESET);
+		display7SEG(a1_Pin, b1_Pin, c1_Pin, d1_Pin, e1_Pin, f1_Pin, g1_Pin,
+					a1_GPIO_Port, b1_GPIO_Port, c1_GPIO_Port, d1_GPIO_Port, e1_GPIO_Port, f1_GPIO_Port, g1_GPIO_Port,
+					3);
+
 		if (timer4_flag == 1) {
 			ToggleLED(LED_GREEN1_GPIO_Port, LED_GREEN1_Pin);
 			ToggleLED(LED_GREEN2_GPIO_Port, LED_GREEN2_Pin);
@@ -124,6 +141,7 @@ void fsm_manual_run() {
 		}
 
 		break;
+
 	default:
 		break;
 	}
