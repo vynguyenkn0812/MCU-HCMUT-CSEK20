@@ -24,5 +24,7 @@ void ToggleOne_shot() {
 }
 
 void ToggleWhenButtonPressed() {
-	HAL_GPIO_TogglePin(LED_Pressed_GPIO_Port, LED_Pressed_Pin);
+	if (isPressedButton(0)){
+		HAL_GPIO_TogglePin(LED_Pressed_GPIO_Port, LED_Pressed_Pin);
+	}
 }
