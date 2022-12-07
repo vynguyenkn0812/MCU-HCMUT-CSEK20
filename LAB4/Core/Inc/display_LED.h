@@ -13,6 +13,7 @@
 #include "button.h"
 
 void ToggleRed();
+void ToggleOrange();
 void ToggleYellow();
 void ToggleGreen();
 void ToggleOne_shot();
