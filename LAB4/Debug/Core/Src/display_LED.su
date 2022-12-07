@@ -1,0 +1,5 @@
+display_LED.c:10:6:ToggleRed	8	static
+display_LED.c:14:6:ToggleYellow	8	static
+display_LED.c:18:6:ToggleGreen	8	static
+display_LED.c:22:6:ToggleOne_shot	8	static
+display_LED.c:26:6:ToggleWhenButtonPressed	8	static
