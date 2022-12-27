@@ -8,6 +8,9 @@
 #ifndef INC_FSM_UART_COMMUNIATION_H_
 #define INC_FSM_UART_COMMUNIATION_H_
 
+#include "global.h"
+#include "software_timer.h"
 
+void fsm_uart_communiation();
 
 #endif /* INC_FSM_UART_COMMUNIATION_H_ */

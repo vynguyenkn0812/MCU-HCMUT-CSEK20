@@ -67,14 +67,14 @@ static void MX_TIM2_Init(void);
 /* USER CODE BEGIN 0 */
 uint8_t temp = 0;
 
-void HAL_UART_RxCpltCallback ( UART_HandleTypeDef * huart ) {
+void HAL_UART_RxCpltCallback (UART_HandleTypeDef * huart) {
 	if( huart -> Instance == USART2 ) {
 
 	// HAL_UART_Transmit (& huart2 , &temp , 1, 50);
-	buffer [ index_buffer ++] = temp ;
-	if( index_buffer == 30) index_buffer = 0;
+	buffer_rx[index_buffer ++] = temp;
+	if (index_buffer == 30) index_buffer = 0;
 		buffer_flag = 1;
-		HAL_UART_Receive_IT (& huart2 , & temp , 1) ;
+		HAL_UART_Receive_IT(&huart2 , &temp , 1) ;
 	}
 }
 /* USER CODE END 0 */
@@ -118,21 +118,22 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  uint32_t ADC_value = 0;
   setTimer1(100);
+  setTimer2(100);
   while (1)
   {
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-	  if (timer1_flag == 1) {
-
+	  if (timer2_flag == 1) {
+		  HAL_GPIO_TogglePin(LED_RED_GPIO_Port, LED_RED_Pin);
+		  setTimer2(1000);
 	  }
 	  if( buffer_flag == 1) {
-		  command_parser_fsm() ;
+		  fsm_command_parser(hadc1, huart2) ;
 		  buffer_flag = 0;
 	  }
-	  uart_communiation_fsm() ;
+	  fsm_uart_communiation(hadc1, huart2) ;
   }
   /* USER CODE END 3 */
 }

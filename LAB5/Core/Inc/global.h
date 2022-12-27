@@ -8,6 +8,11 @@
 #ifndef INC_GLOBAL_H_
 #define INC_GLOBAL_H_
 
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include "main.h"
+
 #define MAX_BUFFER_SIZE 30 //MAX UART BUFFER
 
 #define INIT 				0
